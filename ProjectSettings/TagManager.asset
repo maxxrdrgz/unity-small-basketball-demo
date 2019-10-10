@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Holder
+  - Backboard
+  - Rim
+  - Net
   layers:
   - Default
   - TransparentFX
@@ -40,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Holder
+    uniqueID: 501731705
+    locked: 0
+  - name: BackBoard
+    uniqueID: 565627625
+    locked: 0
+  - name: Rim
+    uniqueID: 4169324847
     locked: 0
