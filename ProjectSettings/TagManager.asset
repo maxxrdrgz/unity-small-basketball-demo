@@ -8,6 +8,7 @@ TagManager:
   - Backboard
   - Rim
   - Net
+  - Ground
   layers:
   - Default
   - TransparentFX
