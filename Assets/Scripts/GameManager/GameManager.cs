@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
         this.index = index;
     }
 
-    public void CreateBall(int index){
+    public void CreateBall(){
         ballCreator.CreatBall(index);
     }
 
     void OnLevelWasLoaded(){
         if(SceneManager.GetActiveScene().name == "Gameplay"){
-            CreateBall(index);
+            CreateBall();
         }
     }
 }
