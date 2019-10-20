@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class GameManager : MonoBehaviour
     private float volume = 1.0f;
     [SerializeField]
     private AudioClip rim_hit1, rim_hit2, bounce1, bounce2, net_sound; 
+    private Text ballText;
 
     private int index = 0;
+    private int balls = 10;
     private BallCreator ballCreator;
     private void Awake() {
         MakeSingleton();
@@ -39,7 +42,25 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(){
         if(SceneManager.GetActiveScene().name == "Gameplay"){
+            ballText = GameObject.Find("Ball Text").GetComponent<Text>();
+            ballText.text = "Balls " + balls;
             CreateBall();
+        }
+    }
+
+    public void IncrementBalls(int inc){
+        balls+= inc;
+        ballText.text = "Balls " +balls;
+        if(balls > 10){
+            balls = 10;
+        }
+    }
+
+    public void DecrementBalls(){
+        balls--;
+        ballText.text = "Balls " +balls;
+        if(balls == 0){
+            print("Game Over");
         }
     }
 
