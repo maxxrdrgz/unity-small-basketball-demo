@@ -30,5 +30,8 @@ public class BallSelect : MonoBehaviour
     public void SelectABall(){
         int index = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
         // inform game manager to use selected ball
+        if(GameManager.instance != null){
+            GameManager.instance.SetBallIndex(index);
+        }
     }
 }
