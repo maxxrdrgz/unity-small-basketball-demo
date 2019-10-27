@@ -49,7 +49,10 @@ public class ShootScript : MonoBehaviour
             GetComponent<Renderer>().material.SetColor("_Color", new Color(c.r, c.g, c.b, life));
             if(life < 0){
                 if(GameManager.instance != null){
-                    GameManager.instance.CreateBall();
+                    GameManager.instance.DecrementBalls();
+                    if(GameManager.instance.GetBallsRemaining() > 0){
+                        GameManager.instance.CreateBall();
+                    }
                 }
                 Destroy(gameObject);
             }
@@ -81,7 +84,6 @@ public class ShootScript : MonoBehaviour
             aiming = false;
             rbody.AddForce(GetForce(Input.mousePosition));
             HidePath();
-            GameManager.instance.DecrementBalls();
         }
     }
 
