@@ -59,9 +59,15 @@ public class GameManager : MonoBehaviour
     public void DecrementBalls(){
         balls--;
         ballText.text = "Balls " +balls;
-        if(balls == 0){
+        if(balls < 0){
+            ballText.text = "Balls 0";
             print("Game Over");
+            Time.timeScale = 0;
         }
+    }
+
+    public int GetBallsRemaining(){
+        return this.balls;
     }
 
     public void PlaySound(int id){
