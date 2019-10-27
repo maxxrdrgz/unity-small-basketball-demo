@@ -29,6 +29,9 @@ public class MainMenuController : MonoBehaviour
 
     public void PlayGame(){
         SceneManager.LoadScene("Gameplay");
+        if(GameManager.instance != null){
+            GameManager.instance.ResetBallsRemaining();
+        }
     }
 
     public void SelectBall(){
