@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour
 
     public void IncrementBalls(int inc){
         balls+= inc;
-        ballText.text = "Balls " +balls;
         if(balls > 10){
             balls = 10;
         }
+        ballText.text = "Balls " +balls;
     }
 
     public void DecrementBalls(){
