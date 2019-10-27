@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     private Text ballText;
 
     private int index = 0;
-    private int balls = 10;
+    private int defaultBalls = 10;
+    private int balls;
     private BallCreator ballCreator;
     private void Awake() {
         MakeSingleton();
@@ -68,6 +69,10 @@ public class GameManager : MonoBehaviour
 
     public int GetBallsRemaining(){
         return this.balls;
+    }
+
+    public void ResetBallsRemaining(){
+        balls = defaultBalls;
     }
 
     public void PlaySound(int id){
