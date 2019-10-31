@@ -27,6 +27,9 @@ public class MainMenuController : MonoBehaviour
         
     }
 
+    /** 
+        Once scene is loaded, it will reset the number of balls remaining.
+    */
     public void PlayGame(){
         SceneManager.LoadScene("Gameplay");
         if(GameManager.instance != null){
@@ -34,11 +37,19 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    /** 
+        Plays the animations that display the ball select panel and hides the
+        main menu panel
+    */
     public void SelectBall(){
         mainAnim.Play("FadeOut");
         ballAnim.Play("FadeIn");
     }
 
+    /** 
+        Plays the animations that display the main menu panel and hides the
+        ball select panel.
+    */
     public void BackToMenu(){
         mainAnim.Play("FadeIn");
         ballAnim.Play("FadeOut");
