@@ -7,6 +7,13 @@ public class BallScript : MonoBehaviour
     private int touchedGround = 0;
     private bool touchedRim;
 
+    /** 
+        Checks for collision between ball and various objects like, rim, holder,
+        ground, and backboard. If true, then a sound will play. Also tracks if 
+        ball has touched the rim or backboard.
+
+        @params {Collision2D} The Collision2D data associated with this collision.
+    */
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Rim"){
             touchedRim = true;
@@ -51,6 +58,13 @@ public class BallScript : MonoBehaviour
         }
     }
 
+    /** 
+        Checks for collision between ball and net. The net is a trigger. If true,
+        plays a sound for the net and determines if the player should get one
+        or two extra balls.
+
+        @params {Collider2D} The other Collider2D involved in this collision.
+    */
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Net"){
             if(touchedRim){
