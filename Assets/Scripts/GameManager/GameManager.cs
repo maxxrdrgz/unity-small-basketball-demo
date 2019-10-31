@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
+    /** 
+        Creates a singleton that persists after loading a new scene
+    */
     void MakeSingleton(){
         if(instance != null){
             Destroy(gameObject);
@@ -33,6 +36,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /** 
+        Stores the index of the ball currently selected.
+
+        @params {int} index of currently selected ball
+    */
     public void SetBallIndex(int index){
         this.index = index;
     }
@@ -41,6 +49,10 @@ public class GameManager : MonoBehaviour
         ballCreator.CreatBall(index);
     }
 
+    /** 
+        When the Gameplay scene loads, this function will look for the Ball Text
+        gameobject and setup the text and make a call to the CreateBall function.
+    */
     void OnLevelWasLoaded(){
         if(SceneManager.GetActiveScene().name == "Gameplay"){
             ballText = GameObject.Find("Ball Text").GetComponent<Text>();
@@ -49,6 +61,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /** 
+        Increments the total ball count and updates the ball text. No more than
+        10 balls can be had.
+
+        @params {int} number of balls to increment by
+    */
     public void IncrementBalls(int inc){
         balls+= inc;
         if(balls > 10){
@@ -57,6 +75,10 @@ public class GameManager : MonoBehaviour
         ballText.text = "Balls " +balls;
     }
 
+    /** 
+        Decrements from the total number of balls by 1, updates the ball text and
+        checks if the player has no more balls left.
+    */
     public void DecrementBalls(){
         balls--;
         ballText.text = "Balls " +balls;
@@ -67,14 +89,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /** 
+        @returns {int} total number of balls in the balls variable.
+    */
     public int GetBallsRemaining(){
         return this.balls;
     }
 
+    /** 
+        Resets the number of balls to the int in defaultBalls.
+    */
     public void ResetBallsRemaining(){
         balls = defaultBalls;
     }
 
+    /**
+        Plays a specific sound when given the id. 
+    
+        @params {int} type of sound to play based on switch case
+    */
     public void PlaySound(int id){
         switch(id){
             case 1:
