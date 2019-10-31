@@ -16,6 +16,11 @@ public class BallCreator : MonoBehaviour
         
     }
 
+    /** 
+        Creates the ball game object with the specificed image given by index.
+
+        @params {int} index of color ball
+    */
     public void CreatBall(int index){
         GameObject gameBall = Instantiate(
             ball, 
