@@ -18,6 +18,10 @@ public class BallSelect : MonoBehaviour
         
     }
 
+    /** 
+        This function will programmatically add the SelectBall() function as 
+        a listener to all gameobjects with the MenuBall tag.
+    */
     void GetButtonsAndAddListeners(){
         GameObject[] btns = GameObject.FindGameObjectsWithTag("MenuBall");
 
@@ -27,6 +31,11 @@ public class BallSelect : MonoBehaviour
         }
     }
 
+    /** 
+        This function will get the name of the game object that was just selected,
+        which is an int and store that as the index for which ball was selected 
+        in the game manager instance.
+    */
     public void SelectABall(){
         int index = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
         // inform game manager to use selected ball
